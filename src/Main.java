@@ -1,6 +1,8 @@
 import br.com.dio.desafio.Curso;
 import br.com.dio.desafio.Mentoria;
 
+import java.time.LocalDate;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -9,13 +11,13 @@ public class Main {
 
         curso.setTitulo("Java");
         curso.setDescricao("Bootcampp framework");
-        curso.setData(8);
+        curso.setCargaHoraria(8);
 
         Mentoria mentoria = new Mentoria();
 
-        curso.setData(0);
-        curso.setTitulo("Programação");
-        curso.setDescricao("Programação em java");
+        mentoria.setData(LocalDate.now());
+        mentoria.setTitulo("Programação");
+        mentoria.setDescricao("Programação em java");
 
         System.out.println(curso.toString());
         System.out.println(mentoria.toString());

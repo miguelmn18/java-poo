@@ -1,41 +1,32 @@
 package br.com.dio.desafio;
 
-public class Mentoria {
+import java.time.LocalDate;
 
-    private String titulo;
-    private String descricao;
-    private int cagaHoraria;
+public class Mentoria extends Conteudo{
 
-    public String getTitulo() {
-        return titulo;
+    private LocalDate data;
+
+    @Override
+    public double calcularXP() {
+        return XP_PADRAO + 20;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public LocalDate getData() {
+        return data;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public int getCagaHoraria() {
-        return cagaHoraria;
-    }
-
-    public void setCagaHoraria(int cagaHoraria) {
-        this.cagaHoraria = cagaHoraria;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
         return "Mentoria{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", cagaHoraria=" + cagaHoraria +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getTitulo() + '\'' +
+                ", cagaHoraria=" + data +
                 '}';
     }
+
+
 }
