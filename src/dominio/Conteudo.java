@@ -25,4 +25,11 @@ public abstract class Conteudo { //quando a classe é abstrata não da pra insta
 
     public abstract double calcularXP ();
 
+    @Override
+    public String toString() {
+        return "Conteudo{" +
+                "titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }

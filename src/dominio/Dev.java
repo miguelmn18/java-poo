@@ -9,10 +9,10 @@ public class Dev {
 
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>(); //quando salvar, coloca na ordem que o usuário se inscreveu
-    private Set<Conteudo> conteudosConcluidos; // quando o usuário for terminando, vai salvando conforme for terminando
+    private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>(); // quando o usuário for terminando, vai salvando conforme for terminando
 
     public void inscreverBootcamp (Bootcamp bootcamp){
-        this.conteudosConcluidos.addAll(bootcamp.getConteudos()); // Com esta linha todos os conteudos incritos são salvos
+        this.conteudosInscritos.addAll(bootcamp.getConteudos()); // Com esta linha todos os conteudos incritos são salvos
         bootcamp.getDevsInscritos().add(this); //Adiciona o DEV
     }
     public void progredir(){
