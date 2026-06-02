@@ -2,6 +2,7 @@ package dominio;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Dev {
@@ -10,9 +11,27 @@ public class Dev {
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>(); //quando salvar, coloca na ordem que o usuário se inscreveu
     private Set<Conteudo> conteudosConcluidos; // quando o usuário for terminando, vai salvando conforme for terminando
 
-    public void inscreverBootcamp (Bootcamp bootcamp){}
-    public void progredirBootcamp (){}
-    public void calcularTotalXP(){}
+    public void inscreverBootcamp (Bootcamp bootcamp){
+        this.conteudosConcluidos.addAll(bootcamp.getConteudos()); // Com esta linha todos os conteudos incritos são salvos
+        bootcamp.getDevsInscritos().add(this); //Adiciona o DEV
+    }
+    public void progredir(){
+        Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst(); // optional é normalmente utilizado para retornos null
+        if(conteudo.isPresent()) { //vê se existem em conteudos incritos
+            this.conteudosConcluidos.add(conteudo.get()); //adiciona a concluídos
+            this.conteudosInscritos.remove(conteudo.get()); //remove dos inscritos
+        }
+        else{
+            System.err.println("Você não está matriculado em nenhum conteúdo!");
+        }
+
+    }
+    public double calcularTotalXP(){
+        return this.conteudosConcluidos.stream()
+                .mapToDouble(conteudo -> conteudo.calcularXP()).
+                sum();  //pega o xp da classe  conteudos concluidos, soma e retorna pro usuário
+
+    }
 
     public String getNome() {
         return nome;
