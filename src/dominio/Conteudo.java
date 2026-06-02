@@ -1,4 +1,4 @@
-package br.com.dio.desafio;
+package dominio;
 
 public abstract class Conteudo { //quando a classe é abstrata não da pra instanciar contéudo
 
